@@ -22,13 +22,19 @@ public:
         //     second=second->next->next;
         // }
         // return head;
-        ListNode*prev=head;
-        while(head!=NULL&&head->next!=NULL){
-            swap(head->val,head->next->val);
-            head=head->next->next;
-        }
-        return prev;
-
+        // ListNode*prev=head;
+        // while(head!=NULL&&head->next!=NULL){
+        //     swap(head->val,head->next->val);
+        //     head=head->next->next;
+        // }
+        // return prev;
+// we can use recusrrsion too
+       ListNode* secondNode = head->next;
+        ListNode* thirdNode = head->next->next;
+        
+        secondNode->next = head;
+        head->next = swapPairs(thirdNode);
+        return secondNode;
 
     }
 };
