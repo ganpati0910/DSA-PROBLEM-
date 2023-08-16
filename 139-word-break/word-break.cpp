@@ -23,7 +23,7 @@ public:
         for(string &s: dict)
             d.insert(s);
 
-        dp.resize(s.length()+1, -1);
+        dp.resize(s.length(), -1);
         return solve(s, 0);
     }
 };
