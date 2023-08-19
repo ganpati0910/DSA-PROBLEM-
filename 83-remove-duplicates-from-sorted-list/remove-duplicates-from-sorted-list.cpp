@@ -15,11 +15,11 @@ public:
         if(head==NULL){
             return head;
         }
-        while( temp->next!=NULL){
+        while(temp!=NULL && temp->next!=NULL){
             if(temp->val==temp->next->val){
-                ListNode*temp2=temp->next;
+               
                 temp->next=temp->next->next;
-                delete temp2;
+                
             }
             else{
             temp=temp->next;
