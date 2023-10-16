@@ -1,23 +1,24 @@
 class Solution {
 public:
-    vector<int> getRow(int r) {
-        vector<vector<int>>outrow(r+1,vector<int>(r+1,0));
-        outrow[0][0]=1;
+   vector<int> getRow(int r) {
+    vector<vector<int>> out;
+    out.push_back({1}); // Initialize the first row.
 
-        for(int i=1; i<=r; i++){
-            for(int j=0; j<=i; j++)
-            {
+    for (int i = 1; i <= r; i++) { // Start from the second row.
+        vector<int> in;
+        in.push_back(1);
 
-               outrow[i][j]+=outrow[i-1][j];
-               if(j!=0)
-               {
-                   outrow[i][j]+=outrow[i-1][j-1];
-               }
-              
-            }
-            
+        for (int j = 1; j < out[i - 1].size(); j++) {
+            int h = out[i - 1][j] + out[i - 1][j - 1];
+            in.push_back(h);
         }
-        return  outrow[r];
+
+        in.push_back(1);
+        out.push_back(in);
     }
+
+    return out[r];
+}
+
            
 };
