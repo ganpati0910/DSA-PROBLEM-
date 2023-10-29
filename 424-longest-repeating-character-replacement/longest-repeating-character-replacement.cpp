@@ -9,16 +9,18 @@ public:
        int ans=INT_MIN;
         while(j<n){
             vec[s[j]-'A']++;
+            if((j-i+1)-*max_element(vec,vec+26)<=k){
+                ans=max(ans,j-i+1);
+            }
+
            if((j-i+1)-*max_element(vec,vec+26)>k){
                while((j-i+1)-*max_element(vec,vec+26)>k){
                   vec[s[i]-'A']--;
                   i++; 
                }
            }
-           ans=max(ans,j-i+1);
           j++;
         }
-
         return ans;
     }
 };
