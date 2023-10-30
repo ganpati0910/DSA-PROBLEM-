@@ -7,7 +7,7 @@ public:
         sort(nums.begin(),nums.end());
         set<float>st;
        while(i<j){
-           st.insert((nums[i]+nums[j]+0.00)/2.0); 
+           st.insert((nums[i]+nums[j])/2.0); 
            i++;
            j--;   
        }
