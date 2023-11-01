@@ -22,11 +22,11 @@ public:
     //     return false;  
 
           set<int>s;
-          for(int i=1; i<n; i++){
-              if(s.find(nums[i]+nums[i-1])!=s.end()){
+          for(int i=0; i<n-1; i++){
+              if(s.find(nums[i]+nums[i+1])!=s.end()){
                      return true;
               }
-              s.insert(nums[i]+nums[i-1]);
+              s.insert(nums[i]+nums[i+1]);
           }
         return false;
           
