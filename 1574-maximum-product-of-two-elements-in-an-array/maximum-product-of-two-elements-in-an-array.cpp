@@ -2,15 +2,8 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) {
         int n=nums.size();
-        int maxi=INT_MIN;
-        for(int i=0; i<n; i++){
-            for(int j=i+1; j<n; j++){
-                if((nums[i]-1)*(nums[j]-1)>maxi){
-                    maxi=(nums[i]-1)*(nums[j]-1);
-                }
-            }
-        }
-        return maxi;
+       sort(nums.begin(),nums.end());
+       return  (nums[n-1]-1)*(nums[n-2]-1);
         
     }
 };
