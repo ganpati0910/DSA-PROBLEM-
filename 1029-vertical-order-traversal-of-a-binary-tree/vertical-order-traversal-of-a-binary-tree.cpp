@@ -36,6 +36,7 @@ public:
 
             }
         }
+        // ab  map me se apni values nikal ke vector me dalni hai 
         for(auto i:mp){
             vector<int>col;
             for(auto j:i.second){
