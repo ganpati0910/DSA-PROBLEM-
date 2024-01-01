@@ -4,7 +4,7 @@ public:
            sort(g.begin(),g.end());
            sort(s.begin(),s.end());
            int ans=0;
-           int i=0; 
+           int i=0;
            int j=0;
            while(i<g.size()&&j<s.size()){
                if(g[i]<=s[j]){
@@ -13,7 +13,7 @@ public:
                    j++;
                }
                else{
-                  j++;   
+                   j++;
                }
            }
            return ans;
