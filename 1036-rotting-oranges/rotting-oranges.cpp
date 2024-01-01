@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int orangesRotting(vector<vector<int>>& grid) {
+    int orangesRotting(vector<vector<int>>& grid){
         int n=grid.size();
         int m=grid[0].size();
         vector<vector<int>>vis(n,vector<int>(m,0));
@@ -13,15 +13,15 @@ public:
                 }
             }
         }
-        int tm=0;
         int delrow[]={1,0,-1,0};
         int delcol[]={0,-1,0,1};
+        int tm=0;
         while(!q.empty()){
             int row=q.front().first.first;
             int col=q.front().first.second;
             int t=q.front().second;
             q.pop();
-            tm=max(t,tm);
+             tm=max(tm,t);
             for(int i=0; i<4; i++){
                 int nrow=row+delrow[i];
                 int mcol=col+delcol[i];
@@ -39,5 +39,6 @@ public:
             }
         }
         return tm;
+        
     }
 };
