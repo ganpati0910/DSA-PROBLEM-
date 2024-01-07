@@ -21,11 +21,11 @@ public:
             int col=q.front().first.second;
             int t=q.front().second;
             q.pop();
-             tm=max(tm,t);
+            tm=max(t,tm);
             for(int i=0; i<4; i++){
                 int nrow=row+delrow[i];
                 int mcol=col+delcol[i];
-                if(nrow>=0&&nrow<n&&mcol>=0&&mcol<m&&vis[nrow][mcol]!=1&&grid[nrow][mcol]==1){
+                if(nrow>=0&&nrow<n&&mcol>=0&&mcol<m&&grid[nrow][mcol]==1&&vis[nrow][mcol]!=1){
                     q.push({{nrow,mcol},t+1});
                     vis[nrow][mcol]=1;
                 }
