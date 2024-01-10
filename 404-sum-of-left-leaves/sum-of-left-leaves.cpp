@@ -11,20 +11,20 @@
  */
 class Solution {
 public:
-      void sumleft(TreeNode *root,int &sum){
-          if(root==NULL){
-              return;
-          }
-          if(root->left!=NULL&&root->left->right==NULL&&root->left->left==NULL){
-              sum=sum+root->left->val;
-          }
-
-          sumleft(root->left,sum);
-          sumleft(root->right,sum);
-      }
+    void sumleft(TreeNode*root,int &sum){
+        if(root==NULL){
+            return;
+        }
+        if(root->left!=NULL&&root->left->right==NULL&&root->left->left==NULL){
+            sum=sum+root->left->val;
+        }
+        sumleft(root->left,sum);
+        sumleft(root->right,sum);
+    }
     int sumOfLeftLeaves(TreeNode* root) {
-       int sum=0;
-       sumleft(root,sum);
-       return sum;   
+        int sum=0;
+        sumleft(root,sum);
+        return sum;
+        
     }
 };
