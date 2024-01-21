@@ -6,16 +6,16 @@ public:
         vector<vector<int>>vis(n,vector<int>(m,0));
         queue<pair<pair<int,int>,int>>q;
         for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
+            for(int j=0; j<m;j++){
                 if(grid[i][j]==2){
                     q.push({{i,j},0});
                     vis[i][j]=1;
                 }
             }
         }
+        int tm=0;
         int delrow[]={1,0,-1,0};
         int delcol[]={0,-1,0,1};
-        int tm=0;
         while(!q.empty()){
             int row=q.front().first.first;
             int col=q.front().first.second;
