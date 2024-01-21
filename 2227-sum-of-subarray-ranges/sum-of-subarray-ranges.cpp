@@ -1,26 +1,26 @@
 class Solution {
 public:
     long long subArrayRanges(vector<int>& arr){
-       long long ans=0;
+        long long ans=0;
         int n=arr.size();
-        long long summin=0;
-        for(int i=0;i<n; i++){
-            int minele=arr[i];
-           for(int j=i; j<n; j++){
-               minele=min(minele,arr[j]);
-               summin=summin+minele;
+        long long sum1=0;
+        long long sum2=0;
+        for(int i=0; i<n; i++){
+           int miniele=arr[i];
+           for(int j=i+1; j<n; j++){
+               miniele=min(miniele,arr[j]);
+               sum1=sum1+miniele;
            }
         }
-        long long summax=0;
-        for(int i=0;i<n; i++){
+
+        for(int i=0; i<n; i++){
             int maxele=arr[i];
-            for(int j=i; j<n; j++){
+            for(int j=i+1; j<n; j++){
                 maxele=max(maxele,arr[j]);
-              
-                summax=summax+maxele;
+                sum2=sum2+maxele;
             }
         }
-        ans=summax-summin;
+        ans=sum2-sum1;
         return ans;
         
     }
