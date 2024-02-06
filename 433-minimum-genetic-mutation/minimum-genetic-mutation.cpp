@@ -4,9 +4,9 @@ public:
     string s="AGCT";
     int minMutation(string start, string end, vector<string>& bank) {
         unordered_set<string>st;
-        for(auto it:bank){
-            st.insert(it);
-        }
+       for(int i=0; i<bank.size(); i++){
+           st.insert(bank[i]);
+       }
         queue<pair<string,int>>q;
         q.push({start,0});
         while(!q.empty()){
