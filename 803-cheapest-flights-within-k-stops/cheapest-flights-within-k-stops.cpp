@@ -22,15 +22,13 @@ public:
                 int newdis=i.second;
                 if(dis+newdis<dist[adjnode]&&stops<=K){
                     dist[adjnode]=dis+newdis;
-                    q.push({stops+1,{adjnode,dis+newdis}});
-                    
+                    q.push({stops+1,{adjnode,dis+newdis}});  
                 }
             }
         }
         if(dist[dst]==1e9){
             return -1;
         }
-        return dist[dst];
-        
+        return dist[dst];  
     }
 };
