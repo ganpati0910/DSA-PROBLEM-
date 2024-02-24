@@ -3,14 +3,14 @@ public:
     string lastNonEmptyString(string s) {
         unordered_map<char,int>mp;
         int maxi=INT_MIN;
-        for(auto it :s){
+        for(auto it:s){
             mp[it]++;
             maxi=max(maxi,mp[it]);
         }
         set<char>st;
-        for(auto it :mp){
-            if(it.second==maxi){
-               st.insert(it.first);
+        for(auto i:mp){
+            if(i.second==maxi){
+                st.insert(i.first);
             }
         }
         string ans="";
