@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int orangesRotting(vector<vector<int>>& grid){
+    int orangesRotting(vector<vector<int>>& grid) {
         int n=grid.size();
         int m=grid[0].size();
         vector<vector<int>>vis(n,vector<int>(m,0));
@@ -23,23 +23,23 @@ public:
             q.pop();
             tm=max(tm,t);
             for(int i=0; i<4; i++){
-                  int nrow=row+delrow[i];
-                  int mcol=col+delcol[i];
-                  if(nrow<n&&nrow>=0&&mcol<m&&mcol>=0&&vis[nrow][mcol]!=1&&grid[nrow][mcol]==1){
-                      q.push({{nrow,mcol},t+1});
-                      vis[nrow][mcol]=1;
-                  }
+                int nrow=row+delrow[i];
+                int mcol=col+delcol[i];
+                if(nrow>=0&&nrow<n&&mcol>=0&&mcol<m&&grid[nrow][mcol]==1&&vis[nrow][mcol]==0){
+                    q.push({{nrow,mcol},t+1});
+                    vis[nrow][mcol]=1;
+                }
             }
         }
+
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
-                if(vis[i][j]==0&&grid[i][j]==1){
-                    return -1;
+                if(grid[i][j]==1&&vis[i][j]==0){
+                     return -1;
                 }
             }
         }
         return tm;
-
         
     }
 };
