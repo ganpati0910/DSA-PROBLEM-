@@ -12,11 +12,11 @@ public:
             if(it.second%2==0){
                 ans+=it.second;
             }
-            else if(it.second>2&&it.second%2==1){
-                ans+=it.second-1;  
-            } 
+            else{
+                ans+=it.second-1;
+            }
         }
-        for(auto it  :mp1){
+        for(auto it :mp1){
             if(it.second%2==1){
                 ans++;
                 break;
