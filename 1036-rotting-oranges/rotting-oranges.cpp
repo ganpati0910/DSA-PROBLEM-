@@ -3,8 +3,8 @@ public:
     int orangesRotting(vector<vector<int>>& grid) {
         int n=grid.size();
         int m=grid[0].size();
-        vector<vector<int>>vis(n,vector<int>(m,0));
         queue<pair<pair<int,int>,int>>q;
+        vector<vector<int>>vis(n,vector<int>(m,0));
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
                 if(grid[i][j]==2){
@@ -21,7 +21,7 @@ public:
             int col=q.front().first.second;
             int t=q.front().second;
             q.pop();
-            tm=max(tm,t);
+             tm=max(t,tm);
             for(int i=0; i<4; i++){
                 int nrow=row+delrow[i];
                 int mcol=col+delcol[i];
@@ -31,15 +31,14 @@ public:
                 }
             }
         }
-
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
-                if(grid[i][j]==1&&vis[i][j]==0){
-                     return -1;
+                if(vis[i][j]!=1&&grid[i][j]==1){
+                    return -1;
                 }
             }
         }
-        return tm;
+        return  tm;
         
     }
 };
