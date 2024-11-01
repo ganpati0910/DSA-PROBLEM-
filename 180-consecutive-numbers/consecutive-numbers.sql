@@ -1,12 +1,7 @@
 # Write your MySQL query statement below
-select distinct l1.num as consecutiveNums 
-from 
-logs as l1 join
-logs as l2 join
-logs as l3 
-where 
-l1.id=l2.id-1 and
-l2.id=l3.id-1
-and
-l1.num=l2.num and
-l2.num=l3.num
+select distinct  num as consecutiveNums from
+(select num,
+lead(num,1) over(order by id) as num2,
+lead(num,2) over(order by id) as num3
+from logs) as logs_table
+where num=num2 and num=num3
