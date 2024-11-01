@@ -1,9 +1,8 @@
 # Write your MySQL query statement below
-
 select distinct l1.num as consecutiveNums 
 from 
-logs as l1
-,logs as l2,
+logs as l1 join
+logs as l2 join
 logs as l3 
 where 
 l1.id=l2.id-1 and
